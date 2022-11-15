@@ -149,3 +149,75 @@ try:
         queens_mode[1][0]) + " times out of " + str(len(queens_price)))
 except NameError:
     print("The mode price in Queens is not yet defined.")
+
+
+====================================================================================================================================================
+
+6.Introduction to Categorical Data
+import codecademylib3
+import pandas as pd
+
+nyc_trees = pd.read_csv("./nyc_tree_census.csv")
+
+# Show the first few rows of nyc_trees
+print(nyc_trees.head(5))
+
+
+# Which columns are categorical vars?
+categorical_vars = ['status', 'health', 'spc_common', 'neighborhood']
+
+
+7.Nominal Categories 
+import pandas as pd
+
+# Read NYC Trees Data
+nyc_trees = pd.read_csv("./nyc_tree_census.csv")
+
+# Get tree counts by neighborhood
+tree_counts = nyc_trees['neighborhood'].value_counts()
+print(tree_counts)
+
+# Get neighborhoods with most trees
+greenest_neighborhood = tree_counts.index[0]
+print(greenest_neighborhood)
+
+8.Ordinal Categorical Variables - Central Tendency ||
+import pandas as pd
+import numpy as np
+
+# Read NYC Trees Data
+nyc_trees = pd.read_csv("nyc_tree_census2.csv")
+
+nyc_trees.tree_diam_category = pd.Categorical(nyc_trees.tree_diam_category, ['Small (0-3in)', 'Medium (3-10in)', 'Medium-Large (10-18in)', 'Large (18-24in)','Very large (>24in)'], ordered=True)
+
+# Get Mean Diam of diameter variable, `trunk_diam`
+mean_diam = np.mean(nyc_trees['trunk_diam'])
+print(mean_diam)
+
+# Get Mean Category of `tree_diam_category`
+mean_diam_cat = np.mean(nyc_trees.tree_diam_category.cat.codes)
+print(mean_diam_cat)
+
+9.Ordinal Catgeories : Spread
+import pandas as pd
+import numpy as np
+
+# Read NYC Trees Data
+nyc_trees = pd.read_csv("nyc_tree_census2.csv")
+
+size_labels_ordered = ['Small (0-3in)', 'Medium (3-10in)', 'Medium-Large (10-18in)', 'Large (18-24in)','Very large (>24in)']
+
+nyc_trees.tree_diam_category = pd.Categorical(nyc_trees.tree_diam_category, size_labels_ordered, ordered=True)
+
+# Calculate 25th Percentile Category
+p25_ind = np.percentile(nyc_trees['tree_diam_category'].cat.codes, 25)
+p25_tree_diam_category = size_labels_ordered[int(p25_ind)] 
+print(p25_tree_diam_category)
+
+
+# Calculate 75th Percentile Category
+p75_ind = np.percentile(nyc_trees['tree_diam_category'].cat.codes, 75)
+p75_tree_diam_category = size_labels_ordered[int(p75_ind)]
+print(p75_tree_diam_category)
+
+10. Table 
