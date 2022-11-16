@@ -4,3 +4,24 @@ import numpy as np
 test_2 = np.genfromtxt('test_2.csv',delimiter=',')
 print(test_2)
 
+2.Adding, subtracting, multiplying to the array elements
+import numpy as np
+test_1 = np.array([92, 94, 88, 91, 87])
+test_2 = np.array([79, 100, 86, 93, 91])
+test_3 = np.array([87, 85, 72, 90, 92])
+
+#Element wise performing Addition
+test_3_fixed = test_3 + 2
+print(test_3_fixed)
+
+#Element wise performing subtraction
+test_3_fixed = test_3 - 2
+print(test_3_fixed)
+
+#Element wise performing multiplication
+test_3_fixed = test_3 * 2
+print(test_3_fixed)
+
+#Element wise performing divison
+test_3_fixed = test_3 / 3
+print(test_3_fixed)
