@@ -1,0 +1,6 @@
+#Statistics with Numpy
+1.Creating an Array from a CSV
+import numpy as np
+test_2 = np.genfromtxt('test_2.csv',delimiter=',')
+print(test_2)
+
