@@ -25,3 +25,20 @@ print(test_3_fixed)
 #Element wise performing divison
 test_3_fixed = test_3 / 3
 print(test_3_fixed)
+
+3.Operations with Numpy Arrays ||
+import numpy as np
+
+test_1 = np.array([92, 94, 88, 91, 87])
+test_2 = np.array([79, 100, 86, 93, 91])
+test_3 = np.array([87, 85, 72, 90, 92])
+test_3_fixed = test_3 + 2
+
+#Adding 3 arrays together and adding fixed_grade to test three
+total_grade = test_1 + test_2 + test_3_fixed
+
+#Divide total_grade by number of tests taken
+final_grade = total_grade/3
+
+#printing the final value
+print(final_grade)
